@@ -1,0 +1,36 @@
+{
+  "name": "itsa-browser-portscan",
+  "version": "0.0.1",
+  "description": "Detects if the document is rendered with @media print",
+  "author": [
+    {
+      "name": "Marco Asbreuk",
+      "email": "marco@itsasbreuk.nl"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ItsAsbreuk/itsa-browser-portscan"
+  },
+  "bugs": {
+    "url": "https://github.com/ItsAsbreuk/itsa-browser-portscan/issues"
+  },
+  "keywords": [
+    "itsasbreuk",
+    "itsa",
+    "portscan",
+    "port",
+    "browser",
+    "scan"
+  ],
+  "main": "index.js",
+  "dependencies": {
+  },
+  "maintainers": [
+    {
+      "name": "Marco Asbreuk",
+      "email": "marco@itsasbreuk.nl"
+    }
+  ],
+  "license": "BSD-3-Clause"
+}
