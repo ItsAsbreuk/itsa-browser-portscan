@@ -4,6 +4,15 @@ Lightweight Port Scanner that works in the browser.
 
 No dependencies
 
+## How it works:
+
+checkPortStatus() returns a Promise with either `true` or `false`.
+
+* Open ports 80 and 443 will resolve almost immediattely
+* Other open ports will resolve after 5-8 seconds
+* Closed ports will reolve after 10 seconds
+
+
 ## How to use:
 
 ```js
