@@ -24,6 +24,9 @@ const checkPort = async (host, port) => {
 };
 
 checkPort('mydomain.com', 3000);
+
+// or, use the 3rd argument to overrule the default timeout of 10000 miliseconds for determining closed ports:
+// checkPort('mydomain.com', 3000, 15000);
 ```
 
 Code is licensed under the [New BSD License](http://choosealicense.com/licenses/bsd-3-clause/).
