@@ -12,7 +12,7 @@ will call the onload, while other ports call onerror. In case a port is closed, 
 10 second timeout to determine that in those cases the port is closed. The image will be removed from the dom
 once the Promise is ready.
 
-The obly method itsa-browser-portscan provides is `checkPortStatus()`. It returns a Promise with either `true` or `false`.
+The only method itsa-browser-portscan provides is `checkPortStatus()`. It returns a Promise with either `true` or `false`.
 
 * Open ports 80 and 443 will resolve almost immediattely
 * Other open ports will resolve after 5-8 seconds
