@@ -1,6 +1,7 @@
 # itsa-browser-portscan
 
-Lightweight Port scanner that work in browser environment.
+Lightweight Port Scanner that works in the browser.
+
 No dependencies
 
 ## How to use:
