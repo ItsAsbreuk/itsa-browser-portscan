@@ -62,6 +62,7 @@ const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
 
             // time determines if the port is open
             const timer = setTimeout(() => {
+                img.src = ''; // cancel request
                 removeImg(img);
                 resolve(false);
             }, closedTimeout || TIMEOUT_CLOSED_PORT);
