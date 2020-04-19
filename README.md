@@ -6,7 +6,13 @@ No dependencies
 
 ## How it works:
 
-checkPortStatus() returns a Promise with either `true` or `false`.
+itsa-browser-portscan inserts a hidden image in the dom and set its source to the defined host and port.
+If the port is opened, the image onload *or* onerror event will be called within 10 seconds. Port 80 and 443
+will call the onload, while other ports call onerror. In case a port is closed, no callback happens: the module uses a
+10 second timeout to determine that in those cases the port is closed. The image will be removed from the dom
+once the Promise is ready.
+
+The obly method itsa-browser-portscan provides is `checkPortStatus()`. It returns a Promise with either `true` or `false`.
 
 * Open ports 80 and 443 will resolve almost immediattely
 * Other open ports will resolve after 5-8 seconds
