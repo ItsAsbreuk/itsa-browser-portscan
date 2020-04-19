@@ -14,9 +14,9 @@ once the Promise is ready.
 
 The only method `itsa-browser-portscan` provides is `checkPortStatus()`. It returns a Promise with either `true` or `false`.
 
-* Open ports 80 and 443 will resolve almost immediattely
-* Other open ports will resolve after 5-8 seconds
-* Closed ports will reolve after 10 seconds
+* Open ports 80 and 443 will resolve `true` almost immediattely
+* Other open ports will resolve `true` after 5-8 seconds
+* Closed ports will resolve `false` after 10 seconds
 
 
 ## How to use:
