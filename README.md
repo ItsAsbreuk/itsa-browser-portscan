@@ -7,11 +7,11 @@ No dependencies
 ## How to use:
 
 ```js
-const checkPortStatus = require("itsa-browser-portscan");
+const checkPortStatus = require('itsa-browser-portscan');
 
 const checkPort = async (host, port) => {
     portOpen = await checkPortStatus(host, port);
-    console.log(`${host}:${port} open: `, portOpen);
+    console.log(`${host}:${port} open: ${portOpen}`);
 };
 
 checkPort('mydomain.com', 3000);
