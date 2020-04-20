@@ -45,7 +45,7 @@ const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
             };
 
             // set the source of the image, which will trigger the callbacks:
-            img.src = 'http' + ((port == 443) ? 's'  : '') + '://' + host + ':' + port;
+            img.src = 'http' + ((port == 443) ? 's'  : '') + '://' + host + ':' + port + '?t=' + Date.now();
         });
     };
 
