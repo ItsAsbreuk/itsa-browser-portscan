@@ -14,35 +14,7 @@
 const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
 
 (function(win) {
-    const DOCUMENT = win.document,
-        BODY = DOCUMENT && DOCUMENT.body;
-
-    const createImageTag = () => {
-        var node = DOCUMENT.createElement('img');
-        node.setAttribute('style', 'display:none;');
-        BODY.appendChild(node);
-        return node;
-    };
-
-    const isChild = (parent, node) => {
-        const children = parent.children;
-        try {
-            return !!Array.prototype.find.call(children, childNode => childNode === node);
-        }
-        catch (err) {
-            // assume true
-            return true;
-        }
-    };
-
-    const removeImg = img => {
-        try {
-            isChild(BODY, img) && BODY.removeChild(img);
-        }
-        catch (err) {
-            console.log(err);
-        }
-    };
+    const DOCUMENT = win.document;
 
     /**
      * Checks for a host:port to be open.
@@ -52,24 +24,23 @@ const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
      * @param port {number} port to check if it is opened
      * @param [closedTimeout] {number} optional timeout (ms) to determine if a port is closed
      * @return {Promise} resoves with a boolean value: whether the port on the host is open
+     * @since 0.0.1
     */
-    const checkPortStatus = async (host, port, closedTimeout) => {
+    const checkPortStatus = (host, port, closedTimeout) => {
         if (!DOCUMENT) {
-            return false;
+            return Promise.resolve(false);
         }
         return new Promise(resolve => {
-            const img = createImageTag();
+            const img = DOCUMENT.createElement('img');
 
             // time determines if the port is open
             const timer = setTimeout(() => {
                 img.src = ''; // cancel request
-                removeImg(img);
                 resolve(false);
             }, closedTimeout || TIMEOUT_CLOSED_PORT);
 
             img.onload = img.onerror = function() {
                 clearTimeout(timer);
-                removeImg(img);
                 resolve(true);
             };
 

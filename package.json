@@ -1,6 +1,6 @@
 {
   "name": "itsa-browser-portscan",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Detects if the document is rendered with @media print",
   "author": [
     {
@@ -21,7 +21,10 @@
     "portscan",
     "port",
     "browser",
-    "scan"
+    "scan",
+    "scannner",
+    "portscan",
+    "portscanner"
   ],
   "main": "index.js",
   "dependencies": {
