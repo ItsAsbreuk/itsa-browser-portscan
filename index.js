@@ -28,7 +28,7 @@ const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
     */
     const checkPortStatus = (host, port, closedTimeout) => {
         if (!DOCUMENT) {
-            return Promise.resolve(false);
+            return Promise.reject('This module should only be used in the browser');
         }
         return new Promise(resolve => {
             const img = DOCUMENT.createElement('img');

@@ -25,8 +25,13 @@ The only method `itsa-browser-portscan` provides is `checkPortStatus()`. It retu
 const checkPortStatus = require('itsa-browser-portscan');
 
 const checkPort = async (host, port) => {
-    portOpen = await checkPortStatus(host, port);
-    console.log(`${host}:${port} open: ${portOpen}`);
+    try {
+        portOpen = await checkPortStatus(host, port);
+        console.log(`${host}:${port} open: ${portOpen}`);
+    }
+    catch (err) {
+        console.warn(err);
+    }
 };
 
 checkPort('mydomain.com', 3000);
