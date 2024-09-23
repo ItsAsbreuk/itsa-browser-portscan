@@ -22,15 +22,17 @@ const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
      * @method checkPortStatus
      * @param host {String} host or ip
      * @param port {number} port to check if it is opened
+     * @param [forcedSsl] {boolean} optional forced to connect through https
      * @param [closedTimeout] {number} optional timeout (ms) to determine if a port is closed
      * @return {Promise} resoves with a boolean value: whether the port on the host is open
      * @since 0.0.1
     */
-    const checkPortStatus = (host, port, closedTimeout) => {
+    const checkPortStatus = (host, port, forcedSsl, closedTimeout) => {
         if (!DOCUMENT) {
             return Promise.reject('This module should only be used in the browser');
         }
         return new Promise(resolve => {
+            let useSsl;
             const img = DOCUMENT.createElement('img');
 
             // time determines if the port is open
@@ -45,7 +47,8 @@ const TIMEOUT_CLOSED_PORT = 10000; // 10 seconds
             };
 
             // set the source of the image, which will trigger the callbacks:
-            img.src = 'http' + ((port == 443) ? 's'  : '') + '://' + host + ':' + port + '?t=' + Date.now();
+            useSsl = (typeof forcedSsl === 'boolean') ? forcedSsl : (port == 443);
+            img.src = 'http' + (useSsl ? 's'  : '') + '://' + host + ':' + port + '?t=' + Date.now();
         });
     };
 
